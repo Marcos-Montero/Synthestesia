@@ -1,4 +1,4 @@
-import { AppContextProvider, useAppContext } from "./context/Context"
+import { useAppContext } from "./context/Context"
 import { CircleButton } from "./components/CircleButton"
 import { keys } from "./constants/keys"
 
