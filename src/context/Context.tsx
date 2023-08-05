@@ -7,21 +7,25 @@ interface AppContextType {
 const AppContext = createContext<AppContextType | undefined>(undefined)
 
 const store = () => {
-	const synth = new Tone.Synth({
+	const synth = new Tone.MonoSynth({
 		envelope: {
 			attack: 0.01,
 			decay: 0.1,
 			sustain: 0.5,
 			release: 0.1
+		},
+		filter: {
+			type: "lowpass",
+			frequency: 12000,
+			rolloff: -12
 		}
-	})
-	synth.toDestination()
+	}).toDestination()
 
 	const play = (n: string) => {
 		if (Tone.context.state !== "running") {
 			Tone.start()
 		}
-		synth.triggerAttackRelease(n, "2n")
+		synth.triggerAttackRelease(n, "8n")
 	}
 	return {
 		play
