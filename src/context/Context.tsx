@@ -3,7 +3,7 @@ import * as Tone from "tone"
 import { KeyProps, keys } from "../constants/keys"
 interface AppContextType {
 	play: (note: string) => void
-	keyPressed: KeyProps
+	keyPressed?: KeyProps
 	setKeyPressed: (key?: KeyProps) => void
 }
 
