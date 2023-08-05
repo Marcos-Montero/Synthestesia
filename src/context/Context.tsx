@@ -13,7 +13,7 @@ const Store = () => {
 	const [keyPressed, setKeyPressed] = useState<KeyProps | undefined>()
 
 	const getKey = (e: KeyboardEvent) => {
-		const selectedKey = keys.find(key => key.key === e.key)
+		const selectedKey = keys.find(key => key.key === e.key || key.key === e.key.toLowerCase())
 		setKeyPressed(selectedKey)
 		setTimeout(() => {
 			setKeyPressed(undefined)
