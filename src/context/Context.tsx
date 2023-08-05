@@ -1,12 +1,24 @@
-import { ReactNode, createContext, useContext } from "react"
+import { ReactNode, createContext, useContext, useEffect, useState } from "react"
 import * as Tone from "tone"
+import { KeyProps, keys } from "../constants/keys"
 interface AppContextType {
 	play: (note: string) => void
+	keyPressed: KeyProps
+	setKeyPressed: (key?: KeyProps) => void
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined)
 
-const store = () => {
+const Store = () => {
+	const [keyPressed, setKeyPressed] = useState<KeyProps | undefined>()
+
+	const getKey = (e: KeyboardEvent) => {
+		const selectedKey = keys.find(key => key.key === e.key)
+		setKeyPressed(selectedKey)
+		setTimeout(() => {
+			setKeyPressed(undefined)
+		}, 20)
+	}
 	const synth = new Tone.MonoSynth({
 		envelope: {
 			attack: 0.01,
@@ -27,13 +39,18 @@ const store = () => {
 		}
 		synth.triggerAttackRelease(n, "8n")
 	}
+	useEffect(() => {
+		document.addEventListener("keydown", getKey, true)
+	}, [])
 	return {
-		play
+		keyPressed,
+		play,
+		setKeyPressed
 	}
 }
 
 export const AppContextProvider = ({ children }: { children: ReactNode }) => {
-	const initialContext = store()
+	const initialContext = Store()
 	return <AppContext.Provider value={initialContext}>{children}</AppContext.Provider>
 }
 // eslint-disable-next-line react-refresh/only-export-components
