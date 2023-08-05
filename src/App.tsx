@@ -19,7 +19,7 @@ const App = () => {
 
 	return (
 		<AppContextProvider>
-			<main style={{ boxShadow: "inset 0 0 1400px " + keyPressed?.color || "transparent", outline: "20px" }} className="flex flex-col min-h-screen min-w-screen items-center justify-center">
+			<main style={{ background: `linear-gradient(180deg, white 0%, white 27%, white 46%, ${keyPressed?.color} 90%` }} className="flex flex-col min-h-screen min-w-screen items-center justify-center">
 				<div className="flex flex-wrap max-w-xl justify-center">
 					{keys.map(({ note, color, key }) => (
 						<CircleButton key={key} note={note} color={color} pressed={keyPressed?.key === key} />
