@@ -128,15 +128,5 @@ export const keys = [
 		note: "g6",
 		color: "#ff9800",
 		key: "b"
-	},
-	{
-		note: "a6",
-		color: "#ff5722",
-		key: "n"
-	},
-	{
-		note: "c7",
-		color: "#795548",
-		key: "m"
 	}
 ]

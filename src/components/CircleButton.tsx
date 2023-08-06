@@ -2,6 +2,7 @@ import { motion, useAnimationControls } from "framer-motion"
 import { useEffect } from "react"
 import { useAppContext } from "../context/Context"
 import { keys } from "../constants/keys"
+import { matchKey } from "../utils"
 
 type Props = {
 	note: string
@@ -13,6 +14,7 @@ export const CircleButton = ({ note, color, pressed }: Props) => {
 	const controls = useAnimationControls()
 	const pressedStyle = {
 		rotate: [3600, 0],
+		scale: [2, 1],
 		outline: "none",
 		transition: {
 			duration: 1,
@@ -22,7 +24,7 @@ export const CircleButton = ({ note, color, pressed }: Props) => {
 	const handleClick = () => {
 		controls.start(pressedStyle)
 		play(note)
-		setKeyPressed(keys?.find(key => key.note === note))
+		setKeyPressed(keys?.find(key => matchKey(key.note, note)))
 	}
 	useEffect(() => {
 		if (!pressed) {

@@ -1,6 +1,7 @@
 import { ReactNode, createContext, useContext, useEffect, useState } from "react"
 import * as Tone from "tone"
 import { KeyProps, keys } from "../constants/keys"
+import { matchKey } from "../utils"
 interface AppContextType {
 	play: (note: string) => void
 	keyPressed?: KeyProps
@@ -13,7 +14,7 @@ const Store = () => {
 	const [keyPressed, setKeyPressed] = useState<KeyProps | undefined>()
 
 	const getKey = (e: KeyboardEvent) => {
-		const selectedKey = keys.find(key => key.key === e.key || key.key === e.key.toLowerCase())
+		const selectedKey = keys.find(key => matchKey(key.key, e.key))
 		setKeyPressed(selectedKey)
 		setTimeout(() => {
 			setKeyPressed(undefined)
