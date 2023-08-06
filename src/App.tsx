@@ -18,7 +18,7 @@ const App = () => {
 			className="flex flex-col min-h-screen min-w-screen items-center justify-center"
 		>
 			<div className="flex flex-wrap max-w-sm justify-center bg-slate-900/05 p-9 gap-4 rounded-3xl backdrop-blur-sm shadow-xl">
-				{keys.reverse().map(({ note, color, key }) => (
+				{keys.map(({ note, color, key }) => (
 					<CircleButton key={key} note={note} color={color} pressed={keyPressed?.key === key} />
 				))}
 			</div>
