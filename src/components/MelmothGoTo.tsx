@@ -4,7 +4,7 @@ export const MelmothGoTo = () => {
 		<>
 			<a
 				href="https://melmoth.dev"
-				className="group/melmoth fixed p-2 rounded-lg shadow-xl shadow-black/50 top-8 left-8 bg-yellow-700/70 hover:bg-yellow-700/80 hover:text-white cursor-pointer w-12 duration-300 hover:w-[148px] overflow-hidden flex items-center h-16 justify-between"
+				className="group/melmoth fixed p-2 rounded-lg shadow-xl shadow-black/50 top-8 left-8 bg-yellow-700/70 hover:bg-yellow-700/80 hover:text-white cursor-pointer w-12 h-12 duration-300 hover:w-[148px] overflow-hidden flex items-center justify-between"
 			>
 				<p>
 					<TiHome className=" text-white text-3xl" />
