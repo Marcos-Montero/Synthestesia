@@ -1,6 +1,7 @@
 import { useAppContext } from "./context/Context"
 import { CircleButton } from "./components/CircleButton"
 import { keys } from "./constants/keys"
+import { MelmothGoTo } from "./components/MelmothGoTo"
 
 const App = () => {
 	const { keyPressed } = useAppContext()
@@ -17,6 +18,7 @@ const App = () => {
 			}}
 			className="flex flex-col min-h-screen min-w-screen items-center justify-center"
 		>
+			<MelmothGoTo />
 			<div className="flex flex-wrap max-w-sm justify-center bg-slate-900/05 p-9 gap-4 rounded-3xl backdrop-blur-sm shadow-xl">
 				{keys.map(({ note, color, key }) => (
 					<CircleButton key={key} note={note} color={color} pressed={keyPressed?.key === key} />
