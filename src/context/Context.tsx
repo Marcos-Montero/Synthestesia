@@ -38,7 +38,7 @@ const Store = () => {
 		if (Tone.context.state !== "running") {
 			Tone.start()
 		}
-		synth.triggerAttackRelease(n, "8n")
+		synth.triggerAttackRelease(n, "2n")
 	}
 	useEffect(() => {
 		document.addEventListener("keydown", getKey, true)
